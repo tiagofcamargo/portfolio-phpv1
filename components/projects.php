@@ -66,7 +66,7 @@
     <h2 class="font-bold text-2xl text-center md:text-left">Meus Projetos</h2>
 
     <?php foreach ($projects as $project): ?>
-        <div class="bg-slate-800 rounded-lg p-6 flex flex-col md:flex-row items-center md:items-center space-y-6 md:space-y-0 md:space-x-6">
+        <div class="bg-slate-800 drop-shadow-[0_2px_2px_rgba(8,145,178,0.5)] rounded-lg p-6 flex flex-col md:flex-row items-center md:items-center space-y-6 md:space-y-0 md:space-x-6">
             <!-- Imagem -->
             <div class="w-full md:w-2/5 flex items-center justify-center">
                 <img src="<?=$project['img']; ?>" class="h-42 md:h-42 rounded-lg" alt="Imagem do projeto">
