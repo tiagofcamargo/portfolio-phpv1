@@ -68,12 +68,12 @@
     <?php foreach ($projects as $project): ?>
         <div class="bg-slate-800 rounded-lg p-6 flex flex-col md:flex-row items-center md:items-center space-y-6 md:space-y-0 md:space-x-6">
             <!-- Imagem -->
-            <div class="w-full md:w-1/5 flex items-center justify-center">
-                <img src="<?=$project['img']; ?>" class="h-42 md:h-24 rounded-lg" alt="Imagem do projeto">
+            <div class="w-full md:w-2/5 flex items-center justify-center">
+                <img src="<?=$project['img']; ?>" class="h-42 md:h-42 rounded-lg" alt="Imagem do projeto">
             </div>
 
             <!-- Texto -->
-            <div class="w-full md:w-4/5 space-y-4 text-center md:text-left">
+            <div class="w-full md:w-3/5 space-y-4 text-center md:text-left">
                 <!-- Título e stacks -->
                 <div class="space-y-2">
                     <h3 class="font-semibold text-xl">
