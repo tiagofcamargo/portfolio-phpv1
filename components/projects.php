@@ -62,38 +62,50 @@
     ];
 ?>
 
-
-
-<section class="space-y-3 py-6 " id="projetos">
-    <h2 class="font-bold text-2xl">Meus Projetos</h2>
+<section class="space-y-6 py-6" id="projetos">
+    <h2 class="font-bold text-2xl text-center md:text-left">Meus Projetos</h2>
 
     <?php foreach ($projects as $project): ?>
-    <div class="bg-slate-800 rounded-lg p-3 flex items-center space-x-3">
-        <div class="w-1/5 flex items-center justify-middle"><img src="<?=$project['img']; ?>"
-        class="h-42 rounded-lg" alt="Print de imagem do projeto"></div>
-        <div class="w-4/5 space-y-3">
-            <div class="flex gap-3 items-center justify-between">
-                <h3 class="font-semibold text-xl">
-                    <?php if($project["finalizado"]): ?>✅<?php endif; ?>
-                    <?=$project['titulo']?>
-                    <?php if(! $project["finalizado"]): ?>
-                        <span class="text-xs text-gray-400 opacity-50 italic">( Projeto em andamento )</span>
-                    <?php elseif($project["finalizado"]): ?>
-                        <span class="text-xs text-gray-400 opacity-50 italic">( Finalizado em <?=$project['year']?> )</span>
-                    <?php endif; ?>
-                </h3>
+        <div class="bg-slate-800 rounded-lg p-6 flex flex-col md:flex-row items-center md:items-center space-y-6 md:space-y-0 md:space-x-6">
+            <!-- Imagem -->
+            <div class="w-full md:w-1/5 flex items-center justify-center">
+                <img src="<?=$project['img']; ?>" class="h-42 md:h-24 rounded-lg" alt="Imagem do projeto">
+            </div>
+
+            <!-- Texto -->
+            <div class="w-full md:w-4/5 space-y-4 text-center md:text-left">
+                <!-- Título e stacks -->
+                <div class="space-y-2">
+                    <h3 class="font-semibold text-xl">
+                        <?php if ($project["finalizado"]): ?>✅<?php endif; ?>
+                        <?=$project['titulo']?>
+                        <?php if (!$project["finalizado"]): ?>
+                            <span class="text-xs text-gray-400 opacity-50 italic">( Projeto em andamento )</span>
+                        <?php elseif ($project["finalizado"]): ?>
+                            <span class="text-xs text-gray-400 opacity-50 italic">( Finalizado em <?=$project['year']?> )</span>
+                        <?php endif; ?>
+                    </h3>
+                    <!-- Stacks -->
+                    <div class="flex flex-wrap justify-center md:justify-start gap-2">
+                        <?php foreach ($project['stacks'] as $stack): ?>
+                            <span class="<?=$stack['color']?> text-sky-900 rounded-md px-2 py-1 font-semibold text-xs uppercase mt-2"><?=$stack['tech']?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <!-- Descrição -->
+                <p class="leading-6 text-sm">
+                    <?=$project['descricao']?>
+                </p>
+
+                <!-- Botão -->
                 <div>
-                    <?php foreach ($project['stacks'] as $stack): ?>
-                        <span class="<?=$stack['color']?> text-sky-900 rounded-md px-2 py-1 font-semibold text-xs uppercase"><?=$stack['tech']?></span>
-                    <?php endforeach; ?>
+                    <a href="<?=$project['link']?>" target="_blank" class="text-sky-900 bg-sky-600 hover:bg-sky-700 rounded-md px-4 py-2 font-semibold text-sm uppercase inline-block">
+                        Conheça o projeto
+                    </a>
                 </div>
             </div>
-            <p class="leading-6">
-                <?=$project['descricao']?>
-            </p>
-            <p class="text-sky-900 bg-sky-600 max-w-40 rounded-md px-2 py-1 font-semibold text-xs text-center uppercase">
-                <a href="<?=$project['link']?>" target="_blank">Conheça o projeto</a></p>
         </div>
-    </div>
     <?php endforeach; ?>
 </section>
+
